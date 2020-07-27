@@ -1,0 +1,3 @@
+DROP TABLE products IF EXISTS;
+CREATE TABLE IF NOT EXISTS products (id bigserial, title VARCHAR(255), price numeric(10,2), PRIMARY KEY (id));
+INSERT INTO products (title, price) VALUES ('Latte', 120), ('Cappuccino', 120), ('BlackIceTea', 100), ('GreenIceTea', 100), ('LatteMacchiato', 120), ('FlatWhite', 130), ('Mocha', 140), ('СaramelMacchiato', 150), ('Espresso', 90), ('DoubleEspresso', 110), ('Lungo', 110), ('FreshBoilCoffee', 100), ('PoorOver', 80), ('FrenchPress', 90), ('ColdBrew', 120), ('ColdBrewLatte', 130), ('ColdBrewCappuccino', 150), ('HotChocolate', 95), ('Milk', 85), ('Tea', 80);
