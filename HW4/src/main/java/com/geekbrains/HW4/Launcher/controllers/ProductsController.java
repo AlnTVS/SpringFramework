@@ -30,6 +30,7 @@ public class ProductsController {
 
     @GetMapping("/filter")
     public String findProductsByMinPrice(Model model,
+                                            @RequestParam(name = "page", defaultValue = "1") Integer pageNumber,
                                             @RequestParam(name = "min_price", required = false) Integer minPrice,
                                             @RequestParam(name = "max_price", required = false) Integer maxPrice) {
         Specification<Product> spec = Specification.where(null);
@@ -41,7 +42,7 @@ public class ProductsController {
             spec = spec.and(ProductSpecifications.priceLEThan(maxPrice));
         }
 
-        List<Product> products = productsService.findAll(spec);
+        List<Product> products = productsService.findAll(spec,pageNumber).getContent();
         model.addAttribute("products", products);
         return "all_products";
     }
